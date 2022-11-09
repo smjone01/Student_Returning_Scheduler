@@ -18,13 +18,15 @@
         type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <!--Form css-->
+    <link href="css\login_signup.css" rel="stylesheet" />
 </head>
 
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.html">Student Returning Scheduler</a>
             <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +38,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="login.html">Login</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#about">About</a></li>
+                            href="index.html#about">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="#foot">Contact</a></li>
                 </ul>
@@ -47,25 +49,24 @@
     <!--Form for Login-->
     <section class="page-section bg-primary text-black mb-0" id="form">
         <div class="container d-flex align-items-center flex-column">
-            <br><br>
-            <h1>LOGIN </h1><br>
-        <form>
-            
+            <br>
+            <h1>LOGIN </h1><span class="brsmall"></span>
+        <form id="login_form">            
             
             <label for="roll_no">Roll No.</label>
-            <input type="text" id="roll_no" class="form-control" placeholder="Enter your roll no."><br>
+            <input type="text" id="roll_no" class="form-control" placeholder="Enter your roll no."><span class="brsmall"></span>
         
-                <label for="InputEmail1">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email id">
+            <label for="InputEmail1">Email address</label>
+            <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email id">
                 
-            <br>
+            <span class="brsmall"></span>
             <label for="psw">Password</label>
             
             <input type="password" class="form-control" id="psw" placeholder="Enter your password"><br>
-            <center><button type="submit" class="btn btn-primary" >Login</button></center>
+            <center><button type="submit" class="btn btn-primary" id="submit_btn">Login</button></center>
         </form>
         <br>
-    <p >Don't have an account? <a href="signup.html">Sign Up</a></p>
+    <p>Don't have an account? <a href="signup.html" id="sign_log">Sign Up</a></p>
     </div>
     </section>
     

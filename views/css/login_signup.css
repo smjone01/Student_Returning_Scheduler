@@ -1,0 +1,21 @@
+#login_form{
+    background-color: aliceblue;
+    padding: 2% 4%;
+    border-radius: 5%;
+    width: 40%;
+}
+#signup_form{
+    background-color: aliceblue;
+    padding: 2% 4%;
+    border-radius: 5%;
+    width: 50%;
+}
+#sign_log{
+    text-decoration: none;
+    color: darkblue;
+}
+
+.brsmall {
+    display: block;
+    margin-bottom: 0.7em;
+}
