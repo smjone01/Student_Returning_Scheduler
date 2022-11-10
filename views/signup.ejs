@@ -26,7 +26,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Student Returning Scheduler</a>
+            <a class="navbar-brand" href="/">Student Returning Scheduler</a>
             <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -46,40 +46,45 @@
         </div>
     </nav>
 
-    <!--Form for Login-->
+    <!--Form for SignUp-->
     <section class="page-section bg-primary text-black mb-0" id="form">
         <div class="container d-flex align-items-center flex-column">
             <br>
             <h1>SIGNUP</h1>
             <span class="brsmall"></span>
-        <form id="signup_form">
-            
-            <label for="name">Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Enter your name">
-            <span class="brsmall"></span>
-            
-            <label for="roll_no">Roll No.</label>
-            <input type="text" id="roll_no" class="form-control" placeholder="Enter your roll no.">
-            <span class="brsmall"></span>
-        
-            <label for="InputEmail1">Email address</label>
-            <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email id">
-            <span class="brsmall"></span>
-            <label for="ph_no">Phone no.</label>
-            <input type="tel" id="ph_no" class="form-control" placeholder="Enter your phone no.">
-            <span class="brsmall"></span>    
-            <label for="psw">Create a Password</label>            
-            <input type="password" class="form-control" id="psw" placeholder="Enter your password">
-            <span class="brsmall"></span>
-            <label for="con_psw">Confirm Password</label>            
-            <input type="password" class="form-control" id="con_psw" placeholder="Enter your password again"><br>
-            <center><button type="submit" class="btn btn-primary" id="submit_btn">SignUp</button></center>
-        </form>
-        <br>
-    <p>Already have an account? <a href="login" id="sign_log">Login</a></p>
-    </div>
+            <form id="signup_form">
+
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                <span class="brsmall"></span>
+
+                <label for="roll_no">Roll No.</label>
+                <input type="text" id="roll_no" class="form-control" placeholder="Enter your roll no.">
+                <span class="brsmall"></span>
+
+                <label for="InputEmail1">Email address</label>
+                <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email id">
+                <span class="brsmall"></span>
+                <label for="ph_no">Phone no.</label>
+                <input type="tel" id="ph_no" class="form-control" placeholder="Enter your phone no.">
+                <span class="brsmall"></span>
+                <label for="psw">Create a Password</label>
+                <input type="password" class="form-control" id="psw" placeholder="Enter your password">
+                <span class="brsmall"></span>
+                <label for="con_psw">Confirm Password</label>
+                <input type="password" class="form-control" id="con_psw" placeholder="Enter your password again"><br>
+                <center><button type="submit" class="btn btn-primary" id="submit_btn">SignUp</button></center>
+            </form>
+            <br>
+            <p>Already have an account? <a href="login" id="sign_log">Login</a></p>
+        </div>
     </section>
-    
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </body>
 
