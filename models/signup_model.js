@@ -11,22 +11,24 @@ const SignupSchema = new Schema({
         required:true
     },
     Email:{
-        type:email,
-        required:true
+        type:String,
+        required:true,
+        unique:true,
+        validate: {
+            validator: function(v) {
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
+            },
+            message: "Please enter a valid email"
+        }
     },
     PhoneNo:{
         type:Number,
         required:true
     },
     Password:{
-        type:password,
-        required:true
-    },
-    ConfirmPass:{
-        type:password,
+        type:String,
         required:true
     }
-
 })
 
 module.exports = mongoose.model("Signup",SignupSchema)
