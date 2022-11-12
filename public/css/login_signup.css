@@ -19,3 +19,6 @@
     display: block;
     margin-bottom: 0.7em;
 }
+textarea{
+    width: 100%;
+}
