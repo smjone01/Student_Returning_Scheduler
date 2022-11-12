@@ -492,7 +492,7 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
-  
+
 }
 
 .display-1 {
@@ -11460,38 +11460,7 @@ html {
     font-size: 1.5rem;
   }
 }
-.portfolio .portfolio-item {
-  cursor: pointer;
-  position: relative;
-  display: block;
-  max-width: 25rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-.portfolio .portfolio-item .portfolio-item-caption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-  background-color: rgb(240,255,255);
-}
-.portfolio .portfolio-item .portfolio-item-caption:hover {
-  opacity: 1;
-}
-.portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
-  font-size: 1.5rem;
-}
 
-.portfolio-modal .btn-close {
-  color: #1abc9c;
-  font-size: 2rem;
-  padding: 1rem;
-}
-.portfolio-modal .portfolio-modal-title {
-  font-size: 2.25rem;
-  line-height: 2rem;
-}
 @media (min-width: 992px) {
   .portfolio-modal .portfolio-modal-title {
     font-size: 3rem;
@@ -11506,6 +11475,6 @@ html {
   color: #fff;
 }
 
-.copyright {
-  background-color: #1a252f;
+#team_names{
+  text-align: -webkit-left;
 }
