@@ -22,3 +22,9 @@
 textarea{
     width: 100%;
 }
+
+@media screen and (max-width : 800px) {
+    #login_form{
+        width: 70%;
+    }
+}
