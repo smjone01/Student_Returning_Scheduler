@@ -52,32 +52,43 @@
             <br>
             <h1>SIGNUP</h1>
             <span class="brsmall"></span>
-            <form id="signup_form">
+        <form id="signup_form" method="post" action="/signup">
+            
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" class="form-control" placeholder="Enter your name" required>
+            <span class="brsmall"></span>
+            
+            <label for="roll_no">Roll No.</label>
+            <input type="text" id="roll_no" name="RollNo" class="form-control" placeholder="Enter your roll no." required>
+            <span class="brsmall"></span>
+        
+            <label for="InputEmail1">Email address</label>
+            <input type="email" name="Email" class="form-control" id="InputEmail1" placeholder="Enter your email id" required>
+            <span class="brsmall"></span>
+            <label for="ph_no">Phone no.</label>
+            <input type="tel" id="ph_no" name="PhoneNo" class="form-control" placeholder="Enter your phone no." required>
+            <span class="brsmall"></span>    
+            <label for="psw">Create a Password</label>            
+            <input type="password" name="Password" class="form-control" id="psw" placeholder="Enter your password" required>
+            <span class="brsmall"></span>
+            <label for="con_psw">Confirm Password</label>            
+            <input type="password" name="ConfirmPass" class="form-control" id="con_psw" placeholder="Enter your password again" required><br>
+            <center><button type="submit" class="btn btn-primary" id="submit_btn">SignUp</button></center>
 
-                <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" placeholder="Enter your name">
-                <span class="brsmall"></span>
+            <%if(error != ""){%>
+            <h6 style="color: red;">
+              <%= error %>
+            </h6>
+            <%}else{%>
+            <h6 style="color: red;">
+              <%= success %>
+            </h6>
+            <%}%>
 
-                <label for="roll_no">Roll No.</label>
-                <input type="text" id="roll_no" class="form-control" placeholder="Enter your roll no.">
-                <span class="brsmall"></span>
-
-                <label for="InputEmail1">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email id">
-                <span class="brsmall"></span>
-                <label for="ph_no">Phone no.</label>
-                <input type="tel" id="ph_no" class="form-control" placeholder="Enter your phone no.">
-                <span class="brsmall"></span>
-                <label for="psw">Create a Password</label>
-                <input type="password" class="form-control" id="psw" placeholder="Enter your password">
-                <span class="brsmall"></span>
-                <label for="con_psw">Confirm Password</label>
-                <input type="password" class="form-control" id="con_psw" placeholder="Enter your password again"><br>
-                <center><button type="submit" class="btn btn-primary" id="submit_btn">SignUp</button></center>
-            </form>
-            <br>
-            <p>Already have an account? <a href="login" id="sign_log">Login</a></p>
-        </div>
+        </form>
+        <br>
+    <p>Already have an account? <a href="login" id="sign_log">Login</a></p>
+    </div>
     </section>
 
     <!-- Footer-->

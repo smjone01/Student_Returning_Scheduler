@@ -24,9 +24,7 @@ app.use(
     )
 );
 
-app.get('/',(req,res)=>{
-    res.render("home")
-})
+
 app.use('/',homeRoutes)
 app.use('/',loginroutes)
 app.use('/',SignUproutes)

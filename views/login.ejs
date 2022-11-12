@@ -51,24 +51,28 @@
         <div class="container d-flex align-items-center flex-column">
             <br>
             <h1>LOGIN </h1><span class="brsmall"></span>
-            <form id="login_form" method="post">
+        <form id="login_form" method="post">            
+            
+            <label for="roll_no">Roll No.</label>
+            <input type="text" id="roll_no" class="form-control" name="RollNo" placeholder="Enter your roll no."><span class="brsmall"></span>
+        
+            <label for="InputEmail1">Email address</label>
+            <input type="email" name="Email" class="form-control" id="InputEmail1" placeholder="Enter your email id">
+                
+            <span class="brsmall"></span>
+            <label for="psw">Password</label>
+            
+            <input type="password" class="form-control" id="psw" name="Password" placeholder="Enter your password"><br>
+            <center><button type="submit" class="btn btn-primary" id="submit_btn">Login</button></center>
+            
+            <h6 style="color: red;">
+                <%= error%>
+            </h6>
 
-                <label for="roll_no">Roll No.</label>
-                <input type="text" id="roll_no" class="form-control" placeholder="Enter your roll no."><span
-                    class="brsmall"></span>
-
-                <label for="InputEmail1">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email id">
-
-                <span class="brsmall"></span>
-                <label for="psw">Password</label>
-
-                <input type="password" class="form-control" id="psw" placeholder="Enter your password"><br>
-                <center><button type="submit" class="btn btn-primary" id="submit_btn">Login</button></center>
-            </form>
-            <br>
-            <p>Don't have an account? <a href="signup" id="sign_log">Sign Up</a></p>
-        </div>
+        </form>
+        <br>
+    <p>Don't have an account? <a href="signup" id="sign_log">Sign Up</a></p>
+    </div>
     </section>
 
     <!-- Footer-->
