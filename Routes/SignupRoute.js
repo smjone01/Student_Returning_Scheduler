@@ -1,9 +1,9 @@
 const express = require("express")
 const router = express.Router()
 const UserSchema = require("../models/signup_model")
-
+const bcrpytjs = require('bcryptjs')
 router.post('/signup', async (req,res)=>{
-    console.log(req.body);
+    
     try{
         const {
             Name,
@@ -13,14 +13,15 @@ router.post('/signup', async (req,res)=>{
             Password,
             ConfirmPass
         } = req.body;
-        console.log(req.body)
+        
         if(Password === ConfirmPass){
+            const hashedPsw = await bcrpytjs.hash(Password,12);
             const UserData = new UserSchema({
                 Name,
                 RollNo,
                 Email,
                 PhoneNo,
-                Password
+                Password: hashedPsw
             })
             await UserData.save(err=>{
                 if(err){
@@ -32,7 +33,7 @@ router.post('/signup', async (req,res)=>{
             })
             const userdatabyemail = await UserSchema.findOne({Email:Email});
             if(Email === userdatabyemail.Email){
-                res.render("signup",{error:"Account with eimilar email already exists ,Please Login"})
+                res.render("signup",{error:"Account with Similar email already exists ,Please Login"})
             }else{
                 console.log('Err')
             }
