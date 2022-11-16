@@ -4,15 +4,19 @@ const homeRoutes = require("./Routes/homeRoutes")
 const loginroutes = require("./Routes/loginRoutes")
 const SignUproutes = require("./Routes/SignupRoute")
 const session =  require("express-session")
+const bcrpyt = require('bcryptjs')
+const UserSchema = require("./models/signup_model")
 const connectMongoDBSession = require('connect-mongodb-session')(session);
 const ejs = require('ejs')
 require("dotenv").config()
+app =express()
 const path = require("path")
 const PORT = process.env.PORT
+
 const bodyParser = require(
     "body-parser"
 );
-app =express()
+
 
 app.set('view engine', 'ejs');
 app.use(express.json())
@@ -26,8 +30,9 @@ app.use(
     )
 );
 
+
 const store = new connectMongoDBSession({
-    uri : "mongodb://localhost:27017/test",
+    uri : process.env.MONGO_URI,
     collection: "sessoions"
 });
 app.use(session({
@@ -37,11 +42,9 @@ app.use(session({
     store:store,
 }));
 
-
 app.use('/',homeRoutes)
 app.use('/',loginroutes)
 app.use('/',SignUproutes)
-
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
@@ -49,8 +52,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.listen(process.env.PORT, () => {
     console.log("Connection done with database and connected on port" , process.env.PORT)
 })
+})
 
-})
-.catch((error)=>{
-    console.log(error)
-})
+

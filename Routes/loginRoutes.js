@@ -3,29 +3,117 @@ const express = require("express")
 const router = express.Router()
 const UserSchema = require("../models/signup_model")
 const bcrpyt = require('bcryptjs')
+const session =  require("express-session")
+const {isAuth} = require("../middlewares/auth")
+// const connectMongoDBSession = require('connect-mongodb-session')(session);
+// const store = new connectMongoDBSession({
+//     uri : "mongodb://localhost:27017/test",
+//     collection: "sessoions"
+// });
+// router.use(session({
+//     secret: 'key that will sign the cookie',
+//     resave: false,
+//     saveUninitialized: false,
+//     store:store,
+// }));
+
+
 
 router.get('/signup',(req,res)=>{
     res.render("signup",{error:'',success:""})
 })
+
+// const isAuth = (req,res,next)=>{
+//     if(req.session.isAuth){
+//         next()
+//     }
+//     else{
+//         res.redirect('/login')
+//     }
+// }
+
+
+// router.get('/request',isAuth,(req,res)=>{
+//     res.render("request") 
+// })
+// router.post('/login',(req,res)=>{
+//     const {
+//         RollNo,
+//         Email,
+//         Password
+//     } = req.body;
+     
+//      UserSchema.findOne({Email:Email},async(err,result)=>{
+//         if(result!==null){var isMatch =  await bcrpyt.compare(Password,result.Password)}
+//         if(result==null){
+//             res.render("login",{error:"Email not registered , Kindly SignUp"})
+//         }
+//         else if(Email === result.Email && isMatch){
+//             req.session.isAuth =true;
+//         return res.redirect('/request')
+//     }   else if(Email === result.Email && !isMatch){
+//         console.log(err)
+//         res.render("login",{error:"Password didn't matched"})
+//     }
+// }
+//     )
+
+// })
+
 router.post('/login',(req,res)=>{
     const {
         RollNo,
         Email,
         Password
     } = req.body;
-    
+     
      UserSchema.findOne({Email:Email},async(err,result)=>{
-        if(result!==null){var isMatch =  await bcrpyt.compare(Password,result.Password)}
-        if(result==null){
+        
+        if(result!==null){var isMatch =  await bcrpyt.compare(Password,result.Password);
+            if(Email === result.Email && isMatch){
+                req.session.isAuth =true;
+                req.session.Name = result.Name;
+                req.session.Email = result.Email;
+            return res.redirect('/request')
+        }   else if(Email === result.Email && !isMatch){
+            console.log(err)
+            res.render("login",{error:"Password didn't matched"})
+        }
+        
+        }
+        else if(result==null){
             res.render("login",{error:"Email not registered , Kindly SignUp"})
         }
-        else if(Email === result.Email && isMatch){
-        res.render("request",{profile:result.Name})
-    }   else if(Email === result.Email && !isMatch){
-        console.log(err)
-        res.render("login",{error:"Password didn't matched"})
-    }
+        
 }
-    ) 
+    )
+
 })
-module.exports = router
+
+router.get('/request',isAuth,(req,res)=>{
+    res.render("request") 
+})
+
+router.post('/logout',(req,res)=>{
+    req.session.destroy((err)=>{
+        if(err) throw err;
+        res.redirect('/')
+    })
+})
+router.get('/logout',(req,res)=>{
+    req.session.destroy((err)=>{
+        if(err) throw err;
+        res.redirect('/')
+    })
+})
+
+router.get('/',(req,res)=>{
+    if(req.session.isAuth){
+        res.render("home",{profile:req.session.Name,login:"Request"})
+    }
+    else{
+        res.render("home",{profile:"Your Profile",login:"Login"})
+    }
+})
+
+module.exports = router;

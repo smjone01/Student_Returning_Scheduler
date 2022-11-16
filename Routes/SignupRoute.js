@@ -23,28 +23,31 @@ router.post('/signup', async (req,res)=>{
                 PhoneNo,
                 Password: hashedPsw
             })
+            const userdatabyemail = await UserSchema.findOne({Email:Email});
+            
             await UserData.save(err=>{
                 if(err){
                     console.log(err)
                 }
                 else{
-                    res.render("signup",{error: "", success:"Done"})
+                    res.render("signup",{error: "", success:"Signed Up Successfully , kindly Login Now"})
                 }
-            })
-            const userdatabyemail = await UserSchema.findOne({Email:Email});
+            });
+            if(userdatabyemail){
             if(Email === userdatabyemail.Email){
-                res.render("signup",{error:"Account with Similar email already exists ,Please Login"})
-            }else{
-                console.log('Err')
-            }
-
+                res.render("signup",{error:"Account with Similar email already exists ,Please Login",success:""})
+            }}
+            
         }
             else{
             res.render('signup',{success:"",error:"Password didn't Match with Confirm Password"})
         }
     }catch(error){
-        res.render('signup',{error:"error"})
+        // res.render('signup',{error:"error" , success:""})
+        console.log(error)
     }
 })
+
+
 
 module.exports = router
