@@ -3,6 +3,8 @@ const mongoose = require("mongoose")
 const homeRoutes = require("./Routes/homeRoutes")
 const loginroutes = require("./Routes/loginRoutes")
 const SignUproutes = require("./Routes/SignupRoute")
+const session =  require("express-session")
+const connectMongoDBSession = require('connect-mongodb-session')(session);
 const ejs = require('ejs')
 require("dotenv").config()
 const path = require("path")
@@ -23,6 +25,17 @@ app.use(
         }
     )
 );
+
+const store = new connectMongoDBSession({
+    uri : "mongodb://localhost:27017/test",
+    collection: "sessoions"
+});
+app.use(session({
+    secret: 'key that will sign the cookie',
+    resave: false,
+    saveUninitialized: false,
+    store:store,
+}));
 
 
 app.use('/',homeRoutes)
