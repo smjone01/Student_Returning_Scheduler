@@ -33,8 +33,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
+                    <% if(login == "Login") { %>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="login">Login</a></li>
+                            href="/login">
+                        <%= login %> 
+                        </a></li>  <%} %>
+
+                    <% if(login == "Request") { %>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="/request">
+                        <%= login %> 
+                        </a></li>  <%} %>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="#about">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
@@ -49,7 +58,9 @@
             <!-- Masthead Avatar Image-->
             <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">your profile</h1>
+            <h1 class="masthead-heading text-uppercase mb-0">
+                <%= profile %>
+            </h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
