@@ -28,12 +28,12 @@ router.post('/signup', async (req,res)=>{
                     console.log(err)
                 }
                 else{
-                    res.render("signup",{error: "", success:"Done"})
+                    res.render("signup",{error: "", success:"Account Created Successfully"})
                 }
             })
             const userdatabyemail = await UserSchema.findOne({Email:Email});
             if(Email === userdatabyemail.Email){
-                res.render("signup",{error:"Account with Similar email already exists ,Please Login"})
+                res.render("signup",{error:"Account with this email address already exits."})
             }else{
                 console.log('Err')
             }

@@ -75,15 +75,15 @@
             <input type="password" name="ConfirmPass" class="form-control" id="con_psw" placeholder="Enter your password again" required><br>
             <center><button type="submit" class="btn btn-primary" id="submit_btn">SignUp</button></center>
 
-            <%if(error != ""){%>
-            <h6 style="color: red;">
-              <%= error %>
-            </h6>
-            <%}else{%>
-            <h6 style="color: red;">
-              <%= success %>
-            </h6>
-            <%}%>
+            <p id="message">
+                <%if(error != ""){%>
+                    <br>
+                  <%= error %>
+                <%}else{%>
+                    <br>
+                  <%= success %>
+                <%}%>>
+            </p>
 
         </form>
         <br>
