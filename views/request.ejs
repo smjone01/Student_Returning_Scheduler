@@ -33,15 +33,17 @@
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                   
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href=""></a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="">LogOut</a></li>
-                </ul>
-            </div>
+            <form action="/logout",method='post'>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href=""></a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1"><button type="submit" class="nav-link py-3 px-0 px-lg-3 rounded"
+                                href="">LogOut</button></li>
+                    </ul>
+                </div>
+            </form>
         </div>
     </nav>
 
@@ -54,7 +56,7 @@
             <form id="signup_form">
 
                 <label for="return_date">Date of return</label>
-                <input type="date" id="return_date" class="form-control" >
+                <input type="date" id="return_date" class="form-control">
                 <span class="brsmall"></span>
 
                 <label for="reason">Reason for return</label>
@@ -66,8 +68,8 @@
                 <input type="file" id="attached_file" class="form-control">
                 <span class="brsmall"></span>
 
-                
-                
+
+
                 <center><button type="submit" class="btn btn-primary" id="submit_btn">Submit</button></center>
             </form>
         </div>
