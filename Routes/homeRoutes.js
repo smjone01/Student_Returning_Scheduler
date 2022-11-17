@@ -6,7 +6,7 @@ router.get('/login',(req,res)=>{
 })
 
 router.get('/',(req,res)=>{
-    res.render('home',{profile:"Your Porfile"})
+    res.render('home',{profile:"Your Profile"})
 })
 
 module.exports = router

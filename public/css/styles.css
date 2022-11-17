@@ -11434,7 +11434,7 @@ html {
 
 .masthead {
   padding-top: calc(6rem + 74px);
-  padding-bottom: 6rem;
+  /* padding-bottom: 6rem; */
 }
 .masthead .masthead-heading {
   font-size: 2.75rem;
@@ -11444,17 +11444,17 @@ html {
   font-size: 1.25rem;
 }
 .masthead .masthead-avatar {
-  width: 15rem;
+  width: 10rem;
 }
 
 @media (min-width: 992px) {
   .masthead {
     padding-top: calc(6rem + 104px);
-    padding-bottom: 6rem;
+    /* padding-bottom: 6rem; */
   }
   .masthead .masthead-heading {
-    font-size: 4rem;
-    line-height: 3.5rem;
+    font-size: xx-large;
+    line-height: 0rem;
   }
   .masthead .masthead-subheading {
     font-size: 1.5rem;
@@ -11477,4 +11477,25 @@ html {
 
 #team_names{
   text-align: -webkit-left;
+}
+
+.req_btn{
+  border: None;
+  background-color: #04AA6D;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 2% 3%;
+  font-weight: bold;
+}
+
+#right{
+  font-size: x-large;
+  float:right; 
+  width:50%;
+}
+#left{
+  float:left; 
+  width:50%;
 }

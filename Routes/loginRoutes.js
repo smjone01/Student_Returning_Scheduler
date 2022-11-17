@@ -20,7 +20,7 @@ router.post('/login',(req,res)=>{
             res.render("login",{error:"Email not registered , Kindly SignUp"})
         }
         else if(Email === result.Email && isMatch){
-        res.render("request",{profile:result.Name})
+        res.render("home",{profile:result.Name})
     }   else if(Email === result.Email && !isMatch){
         console.log(err)
         res.render("login",{error:"Invalid Password"})
