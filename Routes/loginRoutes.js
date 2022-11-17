@@ -74,7 +74,7 @@ router.post('/login',(req,res)=>{
                 req.session.isAuth =true;
                 req.session.Name = result.Name;
                 req.session.Email = result.Email;
-            return res.redirect('/request')
+            return res.redirect('/')
         }   else if(Email === result.Email && !isMatch){
             console.log(err)
             res.render("login",{error:"Password didn't matched"})
