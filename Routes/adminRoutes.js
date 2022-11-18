@@ -1,7 +1,11 @@
 const express = require("express")
 const router = express.Router()
+const requestSchema = require("../models/request_model")
+const signupSchema = require("../models/signup_model")
 const AdminSchema = require("../models/adminlogin_model")
 const{isAdmin} = require("../middlewares/auth")
+const { request } = require("express")
+
 router.get('/adminlogin',(req,res)=>{
     res.render("adminlogin")
 })
@@ -14,7 +18,9 @@ router.post('/adminlogin',async(req,res)=>{
     {const Name = req.body.Name;
     const Email = req.body.Email;
     const SecPin = req.body.Pin;
-    
+   
+   
+
     if(SecPin == process.env.PIN){
         req.session.isAdmin = true;
         const AdminData = new AdminSchema({
@@ -28,6 +34,12 @@ router.post('/adminlogin',async(req,res)=>{
             }
             else{
                 console.log("Admin Added")
+                requestSchema.find({}, (err, result) => {
+                    const  requests = result.map(m => m);
+                    // Use the array, pass it to a service, or pass to a callback
+                    res.render('admin',{requests:requests,signupSchema})
+                  });
+                
             }
         })
     }

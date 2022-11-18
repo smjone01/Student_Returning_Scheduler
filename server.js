@@ -49,6 +49,8 @@ app.use('/',homeRoutes)
 app.use('/',loginroutes)
 app.use('/',SignUproutes)
 app.use('/',requestRoutes)
+app.use('/',adminroutes)
+app.use('/',studentProfileRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{

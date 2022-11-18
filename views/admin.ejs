@@ -31,65 +31,100 @@
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
-            <form action="/logout",method='post'>
+            <form action="/logout" ,method='post'>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
 
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href=""></a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><button type="submit" class="nav-link rounded"
-                                href="">Log Out</button></li>
+                        <li class="nav-item mx-0 mx-lg-1"><button type="submit" class="nav-link rounded" href="">Log
+                                Out</button></li>
                     </ul>
                 </div>
             </form>
         </div>
     </nav>
 
-    <!--Table for admin page-->
-    <section class="page-section bg-primary text-black mb-0" id="form">
-        <div class="container d-flex align-items-center flex-column">
-            <br>
-            <h1>REQUESTS</h1>
-            <span class="brsmall"></span>
-            <table id="request_table">
-                <tr>
-                    <th>Name</th>
-                    <th>Roll No.</th>
-                    <th>Date of return</th>
-                    <th>Reason</th>
-                    <th>Files uploaded</th>
-                    <th>Approval</th>
-                </tr>
-                <div id="request">
-                    <tr>
-                        <td>Shreyas M</td>
-                        <td>B21134</td>
-                        <td>20-09-4509</td>
-                        <td>abcdefghijklmnopqrstuv</td>
-                        <td>to be displayed</td>
-                        <td><button type="submit" class="btn btn-primary" id="submit_btn">Approve</button></td>
-                    </tr>
+    <h1>REQUESTS</h1>
+    
+        <% requests.forEach(function(requests){ %>
+            <section class="page-section bg-primary text-black mb-0" id="form">
+                <div class="container d-flex align-items-center flex-column">
+                    <br>
+                    <span class="brsmall"></span>
+                    <table id="request_table">
+                        <tr>
+                            
+                            <th>Email</th>
+                            <th>Date of return</th>
+                            <th>Reason</th>
+                            <th>Drive Link for Vaccination Proof</th>
+                        </tr>
+                        <div id="request">
+                            <tr>
+                                
+                                <td><%=requests.Email%></td>
+                                <td><%= requests.DateReturn %> </td>
+                                <td><%= requests.Reason %> </td>
+                                <td><%= requests.link %> </td>
+                                
+                            </tr>
+                        </div>
+                    </table>
                 </div>
-                <div id="request">
-                    <tr>
-                        <td>Shreyas M</td>
-                        <td>B21134</td>
-                        <td>20-09-4509</td>
-                        <td>write something here jsojfojofjf</td>
-                        <td>to be displayed</td>
-                        <td><button type="submit" class="btn btn-primary" id="submit_btn">Unapprove</button></td>
-                    </tr>
-                </div>
-            </table>
-        </div>
-    </section>
+            </section>
+        <% }) %>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
 
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+                    <!--Table for admin page-->
+                    <section class="page-section bg-primary text-black mb-0" id="form">
+                        <div class="container d-flex align-items-center flex-column">
+                            <br>
+                            <h1>REQUESTS</h1>
+                            <span class="brsmall"></span>
+                            <table id="request_table">
+                                <tr>
+                                    <th> Name </th>
+                                    <th>Roll No.</th>
+                                    <th>Date of return</th>
+                                    <th>Reason</th>
+                                    <th>Files uploaded</th>
+                                    <th>Approval</th>
+                                </tr>
+                                <div id="request">
+                                    <tr>
+                                        <td>Shreyas M</td>
+                                        <td>B21134</td>
+                                        <td>20-09-4509</td>
+                                        <td>abcdefghijklmnopqrstuv</td>
+                                        <td>to be displayed</td>
+                                        <td><button type="submit" class="btn btn-primary"
+                                                id="submit_btn">Approve</button></td>
+                                    </tr>
+                                </div>
+                                <div id="request">
+                                    <tr>
+                                        <td>Shreyas M</td>
+                                        <td>B21134</td>
+                                        <td>20-09-4509</td>
+                                        <td>write something here jsojfojofjf</td>
+                                        <td>to be displayed</td>
+                                        <td><button type="submit" class="btn btn-primary"
+                                                id="submit_btn">Unapprove</button></td>
+                                    </tr>
+                                </div>
+                            </table>
+                        </div>
+                    </section>
+
+
+
+                    <!-- Bootstrap core JS-->
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+                    <!-- Core theme JS-->
+                    <script src="js/scripts.js"></script>
+
+                    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </body>
 
