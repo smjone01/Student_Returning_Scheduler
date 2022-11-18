@@ -75,15 +75,16 @@ router.post('/login',(req,res)=>{
                 req.session.Name = result.Name;
                 req.session.Email = result.Email;
                 req.session.RollNo = result.RollNo;
+                req.session.PhoneNo = result.PhoneNo;
             res.redirect('/')
         }   else if(Email === result.Email && !isMatch){
             console.log(err)
-            res.render("login",{success:"",error:"Password didn't matched"})
+            res.render("login",{success:"",error:"Invalid Password"})
         }
         
         }
         else if(result==null){
-            res.render("login",{success:"",error:"Email not registered , Kindly SignUp"})
+            res.render("login",{success:"",error:"Account does not exist"})
         }
         
 }
@@ -108,10 +109,10 @@ router.get('/logout',(req,res)=>{
 
 router.get('/',(req,res)=>{
     if(req.session.isAuth){
-        res.render("home",{profile:req.session.Name,login:"Request"})
+        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout"})
     }
     else{
-        res.render("home",{profile:"Your Profile",login:"Login"})
+        res.render("home",{profile:"Your Profile",login:"Login", logout:"About"})
     }
 })
 

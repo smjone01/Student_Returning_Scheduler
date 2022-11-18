@@ -17,6 +17,8 @@
         type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/login_signup.css" rel="stylesheet" />
+
 </head>
 
 <body id="page-top">
@@ -32,31 +34,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <% if(login == "Login") { %>
+                    
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="/login">
-                        <%= login %> 
-                        </a></li>  <%} %>
-
-                    <% if(login == "Details") { %>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="/studentProfile">
-                        <%= login %> 
-                        </a></li>  <%} %>
-
-                        <% if(logout == "Logout") { %>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                    href="/logout">
-                                <%= logout %> 
-                                </a></li>  <%} %>
-        
-                            <% if(logout == "About") { %>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                    href="#about">
-                                <%= logout %> 
-                                </a></li>  <%} %>
-                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#about">About</a></li> -->
+                            href="/">Home</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="#foot">Contact</a></li>
                 </ul>
@@ -71,54 +51,43 @@
                 <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">
-                <%= profile %>
+                <%= name %>
             </h1>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
             </div>                     
             <div id="right">
-                <br><br>
-                <p>Click to send a request to return to campus</p>
-                <button class="req_btn" ><a id="request_button" href="/request">Raise a Request</a></button>
+                <h2>Student Details</h2>
+                <br>
+                <table id="details_table">
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <%= name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Roll no.</td>
+                        <td>
+                            <%= rollno %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email Address</td>
+                        <td>
+                            <%= email %>
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone no.</td>
+                        <td>
+                            <%= phoneNo %>
+                        </td>
+                    </tr>
+                </table>
             </div>                   
-          </div>   </div>
+          </div>   </div><br> <br><br>
     </header> 
-
-    <!-- About Section-->
-    <% if(logout == "About") { %>
-        <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ms-auto">
-                        <p class="lead">It is a web-based application where a
-                            student can raise a request to
-                            return to campus with valid reason and proof
-                            on a selected date. </p>
-                    </div>
-                    <div class="col-lg-4 me-auto">
-                        <p class="lead">A student needs to register or SignUp with his/her credentials and then Login with
-                            the
-                            required information to raise a request.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-       <%} %>
     
-
     <!-- Footer-->
     <footer class="footer text-center" id="foot">
         <div class="container">
