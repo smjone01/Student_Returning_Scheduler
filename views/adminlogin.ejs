@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Login</title>
+    <title>Login as Admin</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -15,10 +15,10 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-    <!--Form css-->
-    <link href="css/login_signup.css" rel="stylesheet" />
+   <!-- Core theme CSS (includes Bootstrap)-->
+   <link href="css/styles.css" rel="stylesheet" />
+   <!--Form css-->
+   <link href="css/login_signup.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -34,8 +34,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="login">Login</a></li> -->
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="login">Login</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="/#about">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
@@ -49,32 +49,24 @@
     <section class="page-section bg-primary text-black mb-0" id="form">
         <div class="container d-flex align-items-center flex-column">
             <br>
-            <h1>LOGIN </h1><span class="brsmall"></span>
-            <h3 style="color:  green;">
-                <%= success %>
-            </h3>
+            <h1>LOGIN AS ADMIN</h1><span class="brsmall"></span>
         <form id="login_form" method="post">            
             
-            <label for="roll_no">Roll No.</label>
-            <input type="text" id="roll_no" class="form-control" name="RollNo" placeholder="Enter your roll no." required><span class="brsmall"></span>
-        
+            <label for="admin_name">Name</label>
+            <input type="text" name="Name" class="form-control" id="admin_name" placeholder="Enter your name" required>
+            
             <label for="InputEmail1">Email address</label>
             <input type="email" name="Email" class="form-control" id="InputEmail1" placeholder="Enter your email id" required>
                 
             <span class="brsmall"></span>
-            <label for="psw">Password</label>
+            <label for="security_pin">Security Pin</label>
             
-            <input type="password" class="form-control" id="psw" name="Password" placeholder="Enter your password" required><br>
+            <input type="text" class="form-control" id="security_pin" name="Pin" placeholder="Enter security pin" required><br>
             <center><button type="submit" class="btn btn-primary" id="submit_btn">Login</button></center>
             
-            <p id="message">
-                <span class="brsmall"></span>
-                <%= error%>
-            </p>
+           
 
         </form>
-        <br>
-    <p>Don't have an account? <a href="signup" id="sign_log">Sign Up</a></p>
     </div>
     </section>
 
