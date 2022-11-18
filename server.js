@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const homeRoutes = require("./Routes/homeRoutes")
 const loginroutes = require("./Routes/loginRoutes")
 const SignUproutes = require("./Routes/SignupRoute")
+const requestRoutes = require("./Routes/requestRoutes")
 const session =  require("express-session")
 const bcrpyt = require('bcryptjs')
 const UserSchema = require("./models/signup_model")
@@ -45,6 +46,7 @@ app.use(session({
 app.use('/',homeRoutes)
 app.use('/',loginroutes)
 app.use('/',SignUproutes)
+app.use('/',requestRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
