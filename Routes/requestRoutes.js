@@ -6,6 +6,17 @@ const requestSchema = require("../models/request_model")
 router.get('/request',isAuth,(req,res)=>{
     res.render("request") 
 })
+
+router.get('/requestStatus',isAuth,(req,res)=>{
+    res.render("requestStatus", {
+        name: req.session.Name,
+        rollno: req.session.RollNo,
+        email: req.session.Email,
+        
+    }) 
+})
+
+
 router.post('/request',isAuth,async(req,res)=>{
     try
         {

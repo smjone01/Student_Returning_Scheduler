@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Raise a Request</title>
+    <title>Request Status</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
 
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href=""></a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Home</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="/logout">Logout
@@ -52,27 +52,29 @@
     <section class="page-section bg-primary text-black mb-0" id="form">
         <div class="container d-flex align-items-center flex-column">
             <br>
-            <h1>RAISE A REQUEST</h1>
+            <h1>REQUEST STATUS</h1>
             <span class="brsmall"></span>
-            <form id="signup_form" method="post" action="/request">
-
-                <label for="return_date">Date of return</label>
-                <input type="date" id="return_date" name="DateReturn" class="form-control">
-                <span class="brsmall"></span>
-
-                <label for="reason">Reason for return</label>
-                <br>
-                <textarea name="Reason" id="reason" rows="2"></textarea>
-                <span class="brsmall"></span>
-
-                <label for="attached_link">Attach Drive link for your Covid Vaccination Certificate</label>
-                <input type="text" id="attached_file" class="form-control" name="link">
-                <span class="brsmall"></span>
-
-
-
-                <center><button type="submit" class="btn btn-primary" id="submit_btn">Submit</button></center>
-            </form>
+            
+                <table id="request_table">
+                    <tr>
+                        <th>Email</th>
+                        <th>Date of return</th>
+                        <th>Reason</th>
+                        <th>Drive Link for Vaccination Proof</th>
+                    </tr>
+                    <div id="request">
+                        <tr>
+                            <td>cfgh</td>
+                            <td>../../..</td>
+                            <td>..</td>
+                            <td>https</td>
+                            
+                        </tr>
+                    </div>
+                </table>
+            <br>
+            <h4>Staus: Pending</h4>    
+            
         </div>
     </section>
     
