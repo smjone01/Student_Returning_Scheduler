@@ -3,18 +3,23 @@ const express = require("express")
 const router = express.Router()
 const session =  require("express-session")
 const requestSchema = require("../models/request_model")
-router.get('/request',isAuth,(req,res)=>{
+const{ requested } = require("../middlewares/request")
+
+router.get('/request',isAuth,   requested,(req,res)=>{
     res.render("request") 
 })
-
-router.get('/requestStatus',isAuth,(req,res)=>{
-    res.render("requestStatus", {
-        name: req.session.Name,
-        rollno: req.session.RollNo,
-        email: req.session.Email,
-        
-    }) 
+router.get('/requestAlreadyMade',(req,res)=>{
+    res.render("requestAlreadyMade")
 })
+
+// router.get('/requestStatus',isAuth,(req,res)=>{
+//     res.render("requestStatus", {
+//         name: req.session.Name,
+//         rollno: req.session.RollNo,
+//         email: req.session.Email,
+        
+//     }) 
+// })
 
 
 router.post('/request',isAuth,async(req,res)=>{
@@ -24,6 +29,7 @@ router.post('/request',isAuth,async(req,res)=>{
             const DateReturn = req.body.DateReturn;
             const Reason = req.body.Reason;
             const link = req.body.link;
+            req.session.requested = true;
             
             const UserReqData = new requestSchema({
                     Email,
@@ -39,7 +45,7 @@ router.post('/request',isAuth,async(req,res)=>{
     }
     else{
         console.log("Done")
-        res.redirect("/");
+        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout",isAuth : req.session.Name,reqstatus:"reqmade"})
     }
    })}
     catch(error){

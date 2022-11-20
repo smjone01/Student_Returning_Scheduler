@@ -6,6 +6,18 @@ const AdminSchema = require("../models/adminlogin_model")
 const{isAdmin} = require("../middlewares/auth")
 const { request } = require("express")
 
+
+router.get('/approve',(req,res)=>{
+    requestSchema.find({}, (err, result) => {
+        const  requests = result.map(m => m);
+    res.render("admin",{requests:requests,status:"Confirmed"}) })
+})
+router.get('/reject',(req,res)=>{
+    requestSchema.find({}, (err, result) => {
+        const  requests = result.map(m => m);
+    res.render("admin",{requests:requests,status:"Declined"}) })
+    
+})
 router.get('/adminlogin',(req,res)=>{
     res.render("adminlogin")
 })
@@ -37,7 +49,8 @@ router.post('/adminlogin',async(req,res)=>{
                 requestSchema.find({}, (err, result) => {
                     const  requests = result.map(m => m);
                     // Use the array, pass it to a service, or pass to a callback
-                    res.render('admin',{requests:requests,signupSchema})
+                    res.render('admin',{requests:requests,status:""})
+                    
                   });
                 
             }
@@ -57,5 +70,3 @@ router.post('/adminlogin',async(req,res)=>{
 
 module.exports = router;
 
-
-//show data 
