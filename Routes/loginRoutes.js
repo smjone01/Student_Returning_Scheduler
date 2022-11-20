@@ -109,10 +109,11 @@ router.get('/logout',(req,res)=>{
 
 router.get('/',(req,res)=>{
     if(req.session.isAuth){
-        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout",isAuth : req.session.Name})
+        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout",isAuth : req.session.Name,reqstatus:null})
     }
     else{
-        res.render("home",{profile:"Your Profile",login:"Login", logout:"About",isAuth: false})
+        res.render("home",{profile:"Your Profile",login:"Login", logout:"About",isAuth: false,reqstatus:null
+    })
     }
 })
 

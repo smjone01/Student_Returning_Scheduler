@@ -32,57 +32,64 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    
+
                     <% if(!isAuth){ %>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/adminlogin">
-                            Admin-Login
-                        </a></li>
-                    <% } %>
-                    <% if(isAuth){ %>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/requestStatus">
-                            Request Status
-                        </a></li>
-                    <% } %>
-                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/adminlogin">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                href="/adminlogin">
+                                Admin-Login
+                            </a></li>
+                        <% } %>
+                            <% if(isAuth){ %>
+                                <li class="nav-item mx-0 mx-lg-1">
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="/requestStatus">
+                                        Request Status
+                                    </a>
+                                </li>
+                                <% } %>
+                                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/adminlogin">
                         Admin-Login
                     </a></li> -->
 
-                    <!-- <% if(isAuth){ %>
+                                    <!-- <% if(isAuth){ %>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/studentProfile">
                             Profile
                         </a></li>
                     <% } %> -->
-                    <% if(login=="Login" ) { %>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login">
-                               Student-<%= login %>
-                            </a></li>
-                        <%} %>
-
-                            <% if(login=="Details" ) { %>
-                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                        href="/studentProfile">
-                                        <%= login %>
-                                    </a></li>
-                                <%} %>
-
-                                    <% if(logout=="Logout" ) { %>
+                                    <% if(login=="Login" ) { %>
                                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                href="/logout">
-                                                <%= logout %>
+                                                href="/login">
+                                                Student-<%= login %>
                                             </a></li>
                                         <%} %>
 
-                                            <% if(logout=="About" ) { %>
+                                            <% if(login=="Details" ) { %>
                                                 <li class="nav-item mx-0 mx-lg-1"><a
-                                                        class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">
-                                                        <%= logout %>
+                                                        class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                        href="/studentProfile">
+                                                        <%= login %>
                                                     </a></li>
                                                 <%} %>
-                                                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+
+                                                    <% if(logout=="Logout" ) { %>
+                                                        <li class="nav-item mx-0 mx-lg-1"><a
+                                                                class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                                href="/logout">
+                                                                <%= logout %>
+                                                            </a></li>
+                                                        <%} %>
+
+                                                            <% if(logout=="About" ) { %>
+                                                                <li class="nav-item mx-0 mx-lg-1"><a
+                                                                        class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                                        href="#about">
+                                                                        <%= logout %>
+                                                                    </a></li>
+                                                                <%} %>
+                                                                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="#about">About</a></li> -->
-                                                    <li class="nav-item mx-0 mx-lg-1"><a
-                                                            class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                            href="#foot">Contact</a></li>
+                                                                    <li class="nav-item mx-0 mx-lg-1"><a
+                                                                            class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                                            href="#foot">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -104,11 +111,22 @@
                         <div class="divider-custom-line"></div>
                     </div>
                 </div>
-                <div id="right">
-                    <br><br>
-                    <p>Click to send a request to return to campus</p>
-                    <button class="req_btn"><a id="request_button" href="/request">Raise a Request</a></button>
-                </div>
+                <% if(reqstatus==null){ %>
+                    <div id="right">
+                        <br><br>
+                        <p>Click to send a request to return to campus</p>
+                        <button class="req_btn"><a id="request_button" href="/request">Raise a Request</a></button>
+                    </div>
+                    <% } %>
+
+                        <% if(reqstatus=="reqmade" ){ %>
+                            <div id="right">
+                                <br><br>
+                                <h2 style="color: Green;">Request Successfully Made</h2>
+
+                            </div>
+                            <% } %>
+
             </div>
         </div>
     </header>
