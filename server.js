@@ -15,7 +15,7 @@ const ejs = require('ejs')
 require("dotenv").config()
 app =express()
 const path = require("path")
-const PORT = process.env.PORT
+
 
 const bodyParser = require(
     "body-parser"
