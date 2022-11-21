@@ -13,7 +13,7 @@ router.post('/signup', async (req,res)=>{
             Password,
             ConfirmPass
         } = req.body;
-        
+        req.session.requested = false;
         if(Password === ConfirmPass){
             const hashedPsw = await bcrpytjs.hash(Password,12);
             const UserData = new UserSchema({

@@ -33,16 +33,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
 
-                    <% if(!isAuth){ %>
+                    <% if(isAuth == "two"){ %>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                                 href="/adminlogin">
                                 Admin-Login
                             </a></li>
                         <% } %>
-                            <% if(isAuth){ %>
+                            <% if(isAuth == "one"){ %>
                                 <li class="nav-item mx-0 mx-lg-1">
                                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="/requestStatus">
-                                        Request Status
+                                        Your Request
                                     </a>
                                 </li>
                                 <% } %>
@@ -111,15 +111,24 @@
                         <div class="divider-custom-line"></div>
                     </div>
                 </div>
+
                 <% if(reqstatus==null){ %>
                     <div id="right">
                         <br><br>
                         <p>Click to send a request to return to campus</p>
                         <button class="req_btn"><a id="request_button" href="/request">Raise a Request</a></button>
                     </div>
-                    <% } %>
+                    <% } 
+                else if(reqstatus=="admin"){ %>
+                    <div id="right">
+                        <br><br>
+                        <h2>Welocme Admin</h2>
+                        <p> Click Below to See all requests</p>
+                        <button class="req_btn"><a id="request_button" href="/adminrequests">Requests</a></button>
+                    </div>
+                    <% } 
 
-                        <% if(reqstatus=="reqmade" ){ %>
+                        else if(reqstatus=="reqmade" ){ %>
                             <div id="right">
                                 <br><br>
                                 <h2 style="color: Green;">Request Successfully Made</h2>

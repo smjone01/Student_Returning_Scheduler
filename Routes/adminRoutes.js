@@ -3,38 +3,34 @@ const router = express.Router()
 const requestSchema = require("../models/request_model")
 const signupSchema = require("../models/signup_model")
 const AdminSchema = require("../models/adminlogin_model")
-const{isAdmin} = require("../middlewares/auth")
 const { request } = require("express")
 
 
-router.get('/approve',(req,res)=>{
-    requestSchema.find({}, (err, result) => {
-        const  requests = result.map(m => m);
-    res.render("admin",{requests:requests,status:"Confirmed"}) })
-})
-router.get('/reject',(req,res)=>{
-    requestSchema.find({}, (err, result) => {
-        const  requests = result.map(m => m);
-    res.render("admin",{requests:requests,status:"Declined"}) })
-    
-})
+
 router.get('/adminlogin',(req,res)=>{
     res.render("adminlogin")
 })
-
-router.get('/reqforadmin',isAdmin,(req,res)=>{
-    res.render("reqforadmin",{Name:req.session.Name,Email:req.session.Email,RollNo:req.session.RollNo,})
+router.get('/adminrequests',(req,res)=>{
+    requestSchema.find({}, (err, result) => {
+        const  requests = result.map(m => m);
+    
+    res.render('admin',{requests:requests,status:""}) 
+});
 })
+
+
 router.post('/adminlogin',async(req,res)=>{
    try
     {const Name = req.body.Name;
     const Email = req.body.Email;
     const SecPin = req.body.Pin;
    
+    
    
 
     if(SecPin == process.env.PIN){
         req.session.isAdmin = true;
+        req.session.AdminEmail = req.body.Email;
         const AdminData = new AdminSchema({
             Name,
             Email,
@@ -46,12 +42,11 @@ router.post('/adminlogin',async(req,res)=>{
             }
             else{
                 console.log("Admin Added")
-                requestSchema.find({}, (err, result) => {
-                    const  requests = result.map(m => m);
+                
                     // Use the array, pass it to a service, or pass to a callback
-                    res.render('admin',{requests:requests,status:""})
-                    
-                  });
+                    // res.render('admin',{requests:requests,status:""})
+                    res.render('home',{profile:req.session.AdminEmail,login:"", logout:"Logout",isAuth : "none",reqstatus:"admin"})
+                  ;
                 
             }
         })

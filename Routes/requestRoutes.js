@@ -3,10 +3,11 @@ const express = require("express")
 const router = express.Router()
 const session =  require("express-session")
 const requestSchema = require("../models/request_model")
-const{ requested } = require("../middlewares/request")
 
-router.get('/request',isAuth,   requested,(req,res)=>{
+
+router.get('/request',isAuth,(req,res)=>{
     res.render("request") 
+
 })
 router.get('/requestAlreadyMade',(req,res)=>{
     res.render("requestAlreadyMade")
@@ -21,15 +22,14 @@ router.get('/requestAlreadyMade',(req,res)=>{
 //     }) 
 // })
 
-
-router.post('/request',isAuth,async(req,res)=>{
+router.post('/request',async(req,res)=>{
     try
         {
             const Email = req.session.Email;
             const DateReturn = req.body.DateReturn;
             const Reason = req.body.Reason;
             const link = req.body.link;
-            req.session.requested = true;
+            
             
             const UserReqData = new requestSchema({
                     Email,
@@ -45,7 +45,7 @@ router.post('/request',isAuth,async(req,res)=>{
     }
     else{
         console.log("Done")
-        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout",isAuth : req.session.Name,reqstatus:"reqmade"})
+        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout",isAuth : "one",reqstatus:"reqmade"})
     }
    })}
     catch(error){
