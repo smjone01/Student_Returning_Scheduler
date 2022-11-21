@@ -5,6 +5,8 @@ const UserSchema = require("../models/signup_model")
 const bcrpyt = require('bcryptjs')
 const session =  require("express-session")
 const {isAuth} = require("../middlewares/auth")
+const {isAdmin} = require("../middlewares/admin")
+const AdminDetails = require("../models/adminlogin_model")
 // const connectMongoDBSession = require('connect-mongodb-session')(session);
 // const store = new connectMongoDBSession({
 //     uri : "mongodb://localhost:27017/test",
@@ -76,6 +78,7 @@ router.post('/login',(req,res)=>{
                 req.session.Email = result.Email;
                 req.session.RollNo = result.RollNo;
                 req.session.PhoneNo = result.PhoneNo;
+
             res.redirect('/')
         }   else if(Email === result.Email && !isMatch){
             console.log(err)
@@ -109,10 +112,14 @@ router.get('/logout',(req,res)=>{
 
 router.get('/',(req,res)=>{
     if(req.session.isAuth){
-        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout",isAuth : req.session.Name,reqstatus:null})
+        res.render("home",{profile:req.session.Name,login:"Details", logout:"Logout",isAuth : "one",reqstatus:null})
+    }
+    
+    else if(req.session.isAdmin){
+        res.render("home",{profile:req.session.AdminEmail,login:"",logout:"Logout",isAuth:"none",reqstatus:"admin"})
     }
     else{
-        res.render("home",{profile:"Your Profile",login:"Login", logout:"About",isAuth: false,reqstatus:null
+        res.render("home",{profile:"Your Profile",login:"Login", logout:"About",isAuth: "two",reqstatus:null
     })
     }
 })
