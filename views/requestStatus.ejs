@@ -53,7 +53,7 @@
     <section class="page-section bg-primary text-black mb-0" id="form">
         <div class="container d-flex align-items-center flex-column">
             <br>
-            <h1>Your Request</h1>
+            <h1>Your Requests</h1>
             <span class="brsmall"></span>
 
             <table id="request_table">
@@ -64,28 +64,26 @@
                     <th>Drive Link for Vaccination Proof</th>
                 </tr>
                 <% if(request="request" ) { %>
+                    <% requestsbystudent.forEach(function(requests){ %>
                     <div id="request">
                         <tr>
                             <td>
-                                <%= Email %>
+                                <%= requests.Email %>
                             </td>
                             <td>
-                                <%= DateReturn %>
+                                <%= requests.DateReturn %>
                             </td>
                             <td>
-                                <%= Reason %>
+                                <%= requests.Reason %>
                             </td>
                             <td>
-                                <%= link %>
+                                <%= requests.link %>
                             </td>
                         </tr>
                     </div>
-                    <% } else if(request="Norequest" ) { %>
-                        <div id="request">
-                            <h2 style="color: red;">No Request with this account</h2>
-                        </div>
+                   
+                        <% }) %>
                         <% } %>
-
             </table>
             <br>
             
