@@ -4,13 +4,14 @@ const requestSchema = require("../models/request_model")
 const signupSchema = require("../models/signup_model")
 const AdminSchema = require("../models/adminlogin_model")
 const { request } = require("express")
-
+const {isAdmin} = require("../middlewares/admin")
 
 
 router.get('/adminlogin',(req,res)=>{
     res.render("adminlogin")
+    
 })
-router.get('/adminrequests',(req,res)=>{
+router.get('/adminrequests',isAdmin,(req,res)=>{
     requestSchema.find({}, (err, result) => {
         const  requests = result.map(m => m);
     

@@ -7,10 +7,12 @@ const requestRoutes = require("./Routes/requestRoutes")
 const adminroutes = require("./Routes/adminRoutes")
 const studentProfileRoutes = require("./Routes/studentProfileRoutes")
 requeststatusRoutes = require("./Routes/requeststatusRoutes")
+
 const session =  require("express-session")
 const bcrpyt = require('bcryptjs')
 const UserSchema = require("./models/signup_model")
 const connectMongoDBSession = require('connect-mongodb-session')(session);
+
 const ejs = require('ejs')
 require("dotenv").config()
 app =express()
@@ -23,6 +25,7 @@ const bodyParser = require(
 
 
 app.set('view engine', 'ejs');
+
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());

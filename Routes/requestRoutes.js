@@ -7,8 +7,8 @@ const requestSchema = require("../models/request_model")
 
 router.get('/request',isAuth,(req,res)=>{
     res.render("request") 
-
 })
+
 router.get('/requestAlreadyMade',(req,res)=>{
     res.render("requestAlreadyMade")
 })
